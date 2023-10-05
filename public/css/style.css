@@ -1,0 +1,8 @@
+body {
+    background-color: rgb(178, 106, 98);
+    margin-top: 5rem;
+    text-align: center;
+}
+h3, p {
+    margin-top: 1rem;
+}
