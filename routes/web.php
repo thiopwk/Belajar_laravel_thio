@@ -24,5 +24,5 @@ Route::get('/about', function () {
 
 // Hubungkan dengan Controllers-PostController | Method Index
 Route::get('/posts', [PostController::class, 'index']);
-// Hubungkan dengan Controllers-PostController | Method Show
+// Hubungkan dengan Controllers-PostController | Method
 Route::get('/posts/{slug}', [PostController::class, 'show']);
