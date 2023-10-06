@@ -13,7 +13,7 @@
                 {{-- Jika data title nya About maka aktifkan tag a About dan matikan tag a lainnya--}}
               <a class="nav-link {{ ($title === "About")? 'active' : '' }}" href="/about">About</a>
                 {{-- Jika data title nya Blog maka aktifkan tag a Blog dan matikan tag a lainnya--}}
-              <a class="nav-link {{ ($title === "Blog")? 'active' : '' }}" href="/blog">Blog</a>
+              <a class="nav-link {{ ($title === "Posts")? 'active' : '' }}" href="/posts">Posts</a>
             </div>
           </div>
         </div>

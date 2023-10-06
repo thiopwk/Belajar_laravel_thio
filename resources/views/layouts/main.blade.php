@@ -10,7 +10,7 @@
   <body>
 
       {{-- memasukkan semua yang ada di layouts/navbar.blade --}}
-      @include('partials.navbar');
+      @include('partials.navbar')
 
       <div class="container mt-3">
         {{-- Di isi oleh @section('container') --}}
