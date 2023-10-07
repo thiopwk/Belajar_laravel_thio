@@ -3,7 +3,7 @@
 
 {{-- Isi nya @yield('container') --}}       
 @section('container')
-        <h1 class="mb-5">Halaman Blog Posts</h1>
+        <h1 class="mb-5">Post Category : {{ $category }}</h1>
     {{-- posts dalam web.php diubah menjadi $post lalu akan terjadi pengulangan--}}
     @foreach ($posts as $post)
     <article class="mb-5">
