@@ -17,11 +17,12 @@ class PostController extends Controller
     }
 
     // Method show
-    public function show($slug)
+    // Post $post diambil dari web.php
+    public function show(Post $post)
     {
         return view('post',[
             "title" => "Single Post",
-            "post" => Post::find($slug)
+            "post" => $post
         ]);
     }
 

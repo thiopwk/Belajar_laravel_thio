@@ -10,7 +10,7 @@
         <h2>
             {{-- /posts/ diambil dari posts.blade.php (WAJIB SESUAI) lalu akan di arahkan ke halaman posts single yang sudah dibuat di web.php--}}
             {{-- post id terhubung ke database --}}
-            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+            <a href="/posts/{{ $post->slug }}">{{ $post->title }}</a>
         </h2>
         <p>{{ $post->excerpt }}</p>
     </article>
