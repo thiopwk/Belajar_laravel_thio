@@ -9,10 +9,10 @@
     <article class="mb-5">
         <h2>
             {{-- /posts/ diambil dari posts.blade.php (WAJIB SESUAI) lalu akan di arahkan ke halaman posts single yang sudah dibuat di web.php--}}
-            <a href="/posts/{{ $post["slug"] }}">{{ $post["title"] }}</a>
+            {{-- post id terhubung ke database --}}
+            <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
         </h2>
-        <h5>Karangan dari : {{ $post["author"] }}</h5>
-        <p>{{ $post["body"] }}</p>
+        <p>{{ $post->excerpt }}</p>
     </article>
         @endforeach
 
