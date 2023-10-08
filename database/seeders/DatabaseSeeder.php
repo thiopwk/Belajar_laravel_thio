@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // fitur ajaib untuk meng insert 10 database acak
-        // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
@@ -25,17 +24,19 @@ class DatabaseSeeder extends Seeder
             
 
         // membuat user baru
-        User::create([
-            'name' => 'Afdhika Syahputra',
-            'email' => 'afdhika@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
+        // User::create([
+        //     'name' => 'Afdhika Syahputra',
+        //     'email' => 'afdhika@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
 
-        User::create([
-            'name' => 'Fatma Fitriani',
-            'email' => 'fatma@gmail.com',
-            'password' => bcrypt('12345')
-        ]);
+        // User::create([
+        //     'name' => 'Fatma Fitriani',
+        //     'email' => 'fatma@gmail.com',
+        //     'password' => bcrypt('12345')
+        // ]);
+
+        User::factory(3)->create(); 
 
         Category::create([
             'name' => 'Web Programming',
@@ -47,41 +48,47 @@ class DatabaseSeeder extends Seeder
             'slug' => 'personal'
         ]);
 
-        Post::create([
-            'title' => 'Judul Pertama',
-            'slug' => 'judul-pertama',
-            'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
+        Post::factory(20)->create();
 
-        Post::create([
-            'title' => 'Judul Kedua',
-            'slug' => 'judul-kedua',
-            'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
-            'category_id' => 1,
-            'user_id' => 1
-        ]);
+        // isi table Post
 
-        Post::create([
-            'title' => 'Judul Ketiga',
-            'slug' => 'judul-ketiga',
-            'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
-            'category_id' => 2,
-            'user_id' => 1
-        ]);
+        // Post::create([
+        //     'title' => 'Judul Pertama',
+        //     'slug' => 'judul-pertama',
+        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
+        //     'category_id' => 1,
+        //     'user_id' => 1
+        // ]);
 
-        Post::create([
-            'title' => 'Judul Ke Empat',
-            'slug' => 'judul-ke-empat',
-            'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
-            'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
-            'category_id' => 2,
-            'user_id' => 2
-        ]);
+        // Post::create([
+        //     'title' => 'Judul Kedua',
+        //     'slug' => 'judul-kedua',
+        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
+        //     'category_id' => 1,
+        //     'user_id' => 1
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Judul Ketiga',
+        //     'slug' => 'judul-ketiga',
+        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
+        //     'category_id' => 2,
+        //     'user_id' => 1
+        // ]);
+
+        // Post::create([
+        //     'title' => 'Judul Ke Empat',
+        //     'slug' => 'judul-ke-empat',
+        //     'excerpt' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta quaerat numquam provident sapiente quos repellendus nesciunt eligendi deserunt deleniti asperiores.',
+        //     'body' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur aperiam ex a itaque deserunt voluptatem, tenetur velit quas error repudiandae dicta ipsa excepturi fugiat, nisi alias repellendus distinctio! Saepe recusandae quo enim unde voluptates sint! Porro mollitia soluta, pariatur sed natus eum nihil est iure reprehenderit id rerum voluptatum qui modi at exercitationem saepe cupiditate dignissimos ab repellat veritatis animi voluptas! Excepturi ut impedit eligendi inventore, debitis est sequi repellat eaque, eius libero fugit in enim sunt earum repudiandae qui perspiciatis minima voluptatum odit accusamus dignissimos. Quisquam rerum ducimus beatae deserunt excepturi ipsum esse, nulla ea officia maxime sunt nisi!',
+        //     'category_id' => 2,
+        //     'user_id' => 2
+        // ]);
+
+
 
     }
 }
