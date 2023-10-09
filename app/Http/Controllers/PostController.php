@@ -15,7 +15,7 @@ class PostController extends Controller
             // "posts" => Post::all()
             // with untuk mengatasi n+1 problem dan mengatasi query yang berlebihan (gak ngelag) -EAGER LOADING
             // wajib download 'composer require itsgoingd/clockwork'
-            "posts" => Post::with(['author', 'category'])->latest()->get()
+            "posts" => Post::latest()->get()
         ]);
     }
 
