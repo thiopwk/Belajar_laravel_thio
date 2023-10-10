@@ -3,7 +3,17 @@
 
 {{-- Isi nya @yield('container') --}}       
 @section('container')
-        <h1 class="mb-5">{{ $title }}</h1>
+        <h1 class="mb-3 text-center">{{ $title }}</h1>
+        <div class="row justify-content-center mb-3">
+          <div class="col-md-13">
+            <form action="/posts">
+              <div class="input-group mb-4">
+                <input type="text" class="form-control fs-5" placeholder="Cari..." name="search" value="{{ request('search')}}">
+                <button class="btn btn-outline-primary col-md-2" type="submit">Cari</button>
+              </div>
+            </form>
+          </div>
+        </div>
 
 @if($posts->count())
 
@@ -32,9 +42,7 @@
 
 
     </div>
-@else
-    <p class="text-center fs-4">Tidak Ada Postingan.</p>
-@endif
+
 
 
 <div class="container">
@@ -58,5 +66,9 @@
         @endforeach
     </div>
 </div>
+
+@else
+    <p class="text-center fs-4">Tidak Ada Postingan.</p>
+@endif
 
 @endsection

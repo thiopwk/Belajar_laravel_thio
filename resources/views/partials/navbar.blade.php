@@ -9,11 +9,13 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 {{-- Jika data title nya Home maka aktifkan tag a Home dan matikan tag a lainnya--}}
-              <a class="nav-link {{ ($title === "Home")? 'active' : '' }}" href="/">Home</a>
+              <a class="nav-link {{ ($active === "home")? 'active' : '' }}" href="/">Home</a>
                 {{-- Jika data title nya About maka aktifkan tag a About dan matikan tag a lainnya--}}
-              <a class="nav-link {{ ($title === "About")? 'active' : '' }}" href="/about">About</a>
+              <a class="nav-link {{ ($active === "about")? 'active' : '' }}" href="/about">About</a>
                 {{-- Jika data title nya Blog maka aktifkan tag a Blog dan matikan tag a lainnya--}}
-              <a class="nav-link {{ ($title === "Posts")? 'active' : '' }}" href="/posts">Posts</a>
+              <a class="nav-link {{ ($active === "posts")? 'active' : '' }}" href="/posts">Postingan</a>
+                {{-- Jika data title nya Blog maka aktifkan tag a Blog dan matikan tag a lainnya--}}
+              <a class="nav-link {{ ($active === "categories")? 'active' : '' }}" href="/categories">Category</a>
             </div>
           </div>
         </div>
