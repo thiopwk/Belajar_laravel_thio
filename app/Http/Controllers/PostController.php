@@ -21,7 +21,7 @@ class PostController extends Controller
             // "posts" => Post::latest()->get()
 
             // mengambil filter dari Post.php
-            "posts" => Post::latest()->filter(request(['search']))->get()
+            "posts" => Post::latest()->filter(request(['search', 'category']))->get()
         ]);
     }
 

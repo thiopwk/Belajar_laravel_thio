@@ -34,6 +34,12 @@ class Post extends Model
              });
          });
 
+         $query->when($filters['category'] ?? false, function($query, $category){
+            return $query->whereHas('category', function($query, $category){
+                $query->where('slug', $category);
+            });
+         });
+
     }
 
     public function category()
