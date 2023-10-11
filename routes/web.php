@@ -1,11 +1,11 @@
 <?php
 
 // menghubungkan ke model post.php (klik kanan - import all classes)
-use App\Models\Post;
+
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Models\Category;
-use App\Models\User;
+use App\Http\Controllers\LoginController;
 
 Route::get('/', function () {
     return view('home', [
@@ -37,6 +37,8 @@ Route::get('/categories', function(){
         'categories' => Category::all()
     ]);
 });
+
+Route::get('/login', [LoginController::class, 'index']);
 
 // Route::get('/categories/{category:slug}', function(Category $category){
 //     return view ('posts', [

@@ -7,6 +7,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            {{-- Navbar --}}
             <div class="navbar-nav">
                 {{-- Jika data title nya Home maka aktifkan tag a Home dan matikan tag a lainnya--}}
               <a class="nav-link {{ ($active === "home")? 'active' : '' }}" href="/">Home</a>
@@ -17,6 +18,14 @@
                 {{-- Jika data title nya Blog maka aktifkan tag a Blog dan matikan tag a lainnya--}}
               <a class="nav-link {{ ($active === "categories")? 'active' : '' }}" href="/categories">Category</a>
             </div>
+
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a href="/login" class="nav-link" {{ ($active === "login")? 'active' : '' }}><i class="bi bi-box-arrow-in-right"></i>
+                  Login</a>
+              </li>
+            </ul>
+
           </div>
         </div>
       </nav>
