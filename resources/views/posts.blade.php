@@ -3,16 +3,19 @@
 
 {{-- Isi nya @yield('container') --}}       
 @section('container')
-        <h1 class="mb-3 text-center">{{ $title }}</h1>
-        <div class="row justify-content-center mb-3">
-          <div class="col-md-13">
-            <form action="/posts">
+<h1 class="mb-5 text-center">{{ $title }}</h1>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-13">
+    <form action="/posts">
               @if(request('category'))
               <input type="hidden" name="category" value="{{ request('category') }}">
               @endif
               @if(request('author'))
               <input type="hidden" name="author" value="{{ request('author') }}">
               @endif
+
+              {{-- search --}}
               <div class="input-group mb-4">
                 <input type="text" class="form-control fs-5" placeholder="Cari..." name="search" value="{{ request('search')}}">
                 <button class="btn btn-outline-primary col-md-2" type="submit">Cari</button>
@@ -21,7 +24,8 @@
           </div>
         </div>
 
-@if($posts->count())
+        
+        @if($posts->count())
 
 {{-- membuat foto (kartu) --}}
 <div class="card mb-3">
@@ -32,23 +36,23 @@
       <h3 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
       <p>
         <small class="text-muted">
-            {{-- mmemasuki link posts author username --}}
+          {{-- mmemasuki link posts author username --}}
             By : <a href="/posts?author={{ $posts[0]->author->username }}" class="text-decoration-none">
-            {{-- mengambil nama author dari posts author --}}
+              {{-- mengambil nama author dari posts author --}}
             {{$posts[0]->author->name}}</a>
             {{-- memasuki link posts category slug --}}
             in <a href="/posts?category={{$posts[0]->category->slug}}
              {{-- mengambil posts category name --}}
-        "class="text-decoration-none">{{ $posts[0]->category->name }}</a>
-        {{-- postingan terakhir pada waktu ... --}}
-        {{ $posts[0]->created_at->diffForHumans() }}</small></p>
+             "class="text-decoration-none">{{ $posts[0]->category->name }}</a>
+             {{-- postingan terakhir pada waktu ... --}}
+             {{ $posts[0]->created_at->diffForHumans() }}</small></p>
       <p class="card-text">{{ $posts[0]->excerpt }}</p>
     
       <a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none btn btn-success">Lihat Lebih Lanjut</a>
 
 
     </div>
-
+    
 
 
 <div class="container">
@@ -77,4 +81,8 @@
     <p class="text-center fs-4">Tidak Ada Postingan.</p>
 @endif
 
+{{-- link ke selanjutnya --}}
+<div class="d-flex justify-content-center">
+  {{ $posts->links() }}
+</div>
 @endsection
