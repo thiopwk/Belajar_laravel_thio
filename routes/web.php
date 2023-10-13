@@ -45,10 +45,13 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// jika belum login, maka akses ke dashboard tidak bisa
 Route::get('/register', [RegisterController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function() {
+    return view('dashboard/index');
+} )->middleware('auth');
 
 // Route::get('/categories/{category:slug}', function(Category $category){
 //     return view ('posts', [
