@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
@@ -45,13 +45,18 @@ Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+
 // jika belum login, maka akses ke dashboard tidak bisa
+// middleware berguna ketika user telah login
 Route::get('/register', [RegisterController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', function() {
     return view('dashboard/index');
 } )->middleware('auth');
+
+
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 // Route::get('/categories/{category:slug}', function(Category $category){
 //     return view ('posts', [
