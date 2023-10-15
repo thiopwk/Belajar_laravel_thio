@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+
 
 class Post extends Model
 {
     use HasFactory;
+    use Sluggable;
+
     // digunakan untuk mempersingkat pembuatan database di terminal
     //CONTOH DIBAWAH DIGUNAKAN UNTUK PHP ARTISAN TINKER 
 
@@ -62,4 +66,19 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
+
 }
