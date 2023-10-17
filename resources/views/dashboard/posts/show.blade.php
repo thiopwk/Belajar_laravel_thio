@@ -17,9 +17,6 @@
                 {!! $post->body !!}
             </article>
 
-        {{-- /posts diambil dari posts.blade/php --}}
-        <a href="/posts" class="d-block mt-3 btn btn-success">Back to Post</a>
-
         </div>
     </div>
 </div>
