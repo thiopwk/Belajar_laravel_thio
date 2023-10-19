@@ -7,7 +7,8 @@
   </div>
   @csrf
   <div class="col-lg-8">
-      <form method="post" action="/dashboard/posts" class="mb-5">
+    {{-- enctype untuk menangani file --}}
+      <form method="post" action="/dashboard/posts" class="mb-5" enctype="multipart/form-data">
         @csrf 
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -39,6 +40,20 @@
             @endforeach
           </select>
         </div>
+        
+        <div class="mb-3">
+          <label for="image" class="form-label">Post Image</label>
+          <img class="img-preview img-fluid mb-3 col-sm-5">
+          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+          @error('image')
+              <div class="invalid-feedback">
+                  {{ $message }}
+              </div>
+          @enderror
+        </div>
+
+        </div>
+
         <div class="mb-3">
           <label for="body" class="form-label">Body</label>     
           @error('body')
