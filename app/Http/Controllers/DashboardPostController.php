@@ -53,7 +53,7 @@ class DashboardPostController extends Controller
         Post::create($validatedData);
 
         // untuk kembali halaman posts dashboard dan mengirimkan success dengan session
-        return redirect('/dashboard/posts')-> with('success', 'New post has been added');
+        return redirect('/dashboard/posts')-> with('success', 'New post has been added!');
 
     }
 
@@ -74,7 +74,10 @@ class DashboardPostController extends Controller
     // halaman untuk ubah data
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post' => $post,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -83,7 +86,31 @@ class DashboardPostController extends Controller
     // halaman untuk proses ubah data
     public function update(Request $request, Post $post)
     {
-        //
+        $rules = [
+            'title' => 'required|max:255',
+            'category_id' => 'required',
+            'body' => 'required',
+        ];
+
+        if($request->slug != $post->slug){
+
+            $rules['slug'] = 'required|unique:posts';
+
+        }
+
+        $validateData = $request->validate($rules);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        // Str untuk membatasi/limit huruf     strip_tags untuk menghilangkan tag html pada bagian body login dashboard
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...' );
+
+        Post::where('id', $post->id)
+            ->update($validatedData);
+
+        // untuk kembali halaman posts dashboard dan mengirimkan success dengan session
+        return redirect('/dashboard/posts')-> with('success', 'Post has been updated!');
+
     }
 
     /**
@@ -92,7 +119,10 @@ class DashboardPostController extends Controller
     // halaman untuk menghapus postingan
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+
+        // untuk kembali halaman posts dashboard dan mengirimkan success dengan session
+        return redirect('/dashboard/posts')-> with('success', 'Post has been deleted');
     }
 
     public function checkSlug(Request $request)
